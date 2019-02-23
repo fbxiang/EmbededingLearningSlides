@@ -1,0 +1,67 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+
+\definecolor{bblue}{HTML}{006C92}
+
+\setbeamercolor*{title page header}{fg=bblue}
+\setbeamercolor*{author}{fg=bblue}
+\setbeamercolor*{date}{fg=bblue}
+\setbeamercolor*{author in head/foot}{fg=white, bg=bblue}
+\setbeamercolor*{title in head/foot}{fg=white, bg=bblue}
+
+\setbeamerfont{title}{size=\Huge}
+
+% Background
+\setbeamertemplate{background}{
+\begin{tikzpicture}
+\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+\ifnum\thepage=1\relax
+  \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\paperwidth]{template/background.jpeg}};
+  \node[anchor=north west,inner sep=0] at (0.5,\paperheight-0.5cm) {\includegraphics[width=0.25\paperwidth]{template/logo.png}};
+\fi
+\end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{ucsd}[1][]
+{
+    \vskip1.5cm
+    \begin{beamercolorbox}[center, #1]{title page header}
+      \usebeamerfont{title}\inserttitle
+    \end{beamercolorbox}
+    \vskip0.75cm
+    \begin{beamercolorbox}[center, #1]{author}
+      \usebeamerfont{author}Presenter: \insertauthor
+    \end{beamercolorbox}
+     \vskip0.2cm
+    \begin{beamercolorbox}[center, #1]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+  \vfill
+}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1ex,center]{title in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}
+  \hspace{-\paperwidth}
+  \begin{beamercolorbox}[wd=0.4\paperwidth,ht=3ex,dp=1ex]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertauthor
+  \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamerfont{frametitle}{size=\huge}
+\setbeamercolor*{frametitle}{fg=black}
+\setbeamercolor*{normal text}{fg=black}
+
+\mode<all>
